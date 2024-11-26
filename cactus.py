@@ -1,28 +1,34 @@
-# cactus.py (Clase Hija Cactus)
+# cactus.py
 from tipo import PlantaTipo
-from luzsolar import Luz  # Asumiendo que tienes una clase Luz
-class Cactus(PlantaTipo, Luz):
-    def __init__ (self, nombre, tipo="Cactus Espinoso", color_espinas="Blancas", altura=30, tamano="Pequeño",
-                 luz_solar="Alta"):
-        # Llamar al constructor de la clase padre (PlantaTipo)
-        PlantaTipo.__init__(self, nombre, tipo, tamano)
-        # Llamar al constructor de la clase Luz
-        Luz.__init__(self, luz_solar)
 
-        # Atributos específicos de Cactus
-        self._color_espinas = color_espinas
-        self._altura = altura
 
-    # Métodos para mostrar la información específica del cactus
-    def mostrar_color_espinas(self):
-        print(f"Color de las espinas: {self._color_espinas}")
+class Cactus(PlantaTipo):
+    def __init__(self, nombre, resistencia_sequia, almacenamiento_agua):
+        # Llamar al constructor de la clase base con parámetros requeridos
+        super().__init__(nombre, "Cactus")
 
-    def mostrar_altura(self):
-        print(f"Altura del cactus: {self._altura} cm")
+        # Atributos relacionados con la resistencia a la sequía y almacenamiento de agua
+        self.resistencia_sequia = resistencia_sequia  # Resistencia a la sequía del cactus
+        self.almacenamiento_agua = almacenamiento_agua  # Capacidad de almacenamiento de agua del cactus
 
+    # Métodos getters para acceder a los atributos
+    def get_resistencia_sequia(self):
+        return self.resistencia_sequia
+
+    def get_almacenamiento_agua(self):
+        return self.almacenamiento_agua
+
+    # Métodos para mostrar información específica del cactus
+    def mostrar_resistencia_sequia(self):
+        print(f"Resistencia a la sequía: {self.resistencia_sequia}")
+
+    def mostrar_almacenamiento_agua(self):
+        print(f"Almacenamiento de agua: {self.almacenamiento_agua}")
+
+    # Mostrar toda la información del cactus
     def mostrar_info_completa(self):
-        # Llamar al método de la clase padre
+        # Llamar al método de la clase padre para mostrar la información general
         self.mostrar_info()
         # Mostrar la información específica del cactus
-        self.mostrar_color_espinas()
-        self.mostrar_altura()
+        self.mostrar_resistencia_sequia()
+        self.mostrar_almacenamiento_agua()

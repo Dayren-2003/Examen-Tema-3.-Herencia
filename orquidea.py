@@ -1,32 +1,33 @@
-# orquidea.py (Clase Hija Orquidea)
+# orquidea.py
 from tipo import PlantaTipo
 
+class OrquideaExotica(PlantaTipo):
+    def __init__(self, nombre, exotica, raices_aereas,):
+        # Llamar al constructor de la clase base con parámetros requeridos
+        super().__init__(nombre, "Orquídea")
 
-class Orquidea(PlantaTipo):
-    def __init__(self, nombre, color_flor="Púrpura", tipo_fertilizante="Cada dos semanas", duracion_flor="Ocho semanas",
-                 tamano="Pequeña"):
-        # Llamar al constructor de la clase padre (PlantaTipo)
-        PlantaTipo.__init__(self, nombre, "Orquídea", tamano)
+        # Atributos relacionados con las características específicas de la orquídea exótica
+        self.exotica = exotica  # Indica si la orquídea es exótica
+        self.raices_aereas = raices_aereas  # Indica si tiene raíces aéreas
 
-        # Atributos específicos de la orquídea
-        self._color_flor = color_flor
-        self._tipo_fertilizante = tipo_fertilizante
-        self._duracion_flor = duracion_flor
+    # Métodos getters para acceder a los atributos
+    def get_exotica(self):
+        return self.exotica
 
-    # Métodos para mostrar información específica de la orquídea
-    def mostrar_color_flor(self):
-        print(f"Color de la flor: {self._color_flor}")
+    def get_raices_aereas(self):
+        return self.raices_aereas
 
-    def mostrar_tipo_fertilizante(self):
-        print(f"Tipo de fertilizante: {self._tipo_fertilizante}")
+    # Métodos para mostrar información específica de la orquídea exótica
+    def mostrar_exotica(self):
+        print(f"Exótica: {self.exotica}")
 
-    def mostrar_duracion_flor(self):
-        print(f"Duración de la floración: {self._duracion_flor}")
+    def mostrar_raices_aereas(self):
+        print(f"Raíces aéreas: {self.raices_aereas}")
 
+    # Mostrar toda la información de la planta
     def mostrar_info_completa(self):
-        # Llamar al método de la clase padre
+        # Llamar al método de la clase padre para mostrar la información general
         self.mostrar_info()
-        # Mostrar la información específica de la orquídea
-        self.mostrar_color_flor()
-        self.mostrar_tipo_fertilizante()
-        self.mostrar_duracion_flor()
+        # Mostrar la información específica de la orquídea exótica
+        self.mostrar_exotica()
+        self.mostrar_raices_aereas()
